@@ -2,15 +2,15 @@
 - name: Instalar Prestashop
   unarchive:
     src: "{{ prestashop_url_download }}"
-    dest: /var/www
+    dest: "{{ prestashop_root_path }}"
     remote_src: True
     owner: www-data
     group: www-data
-    creates: /var/www/prestashop
+    creates: "{{ prestashop_root_path }}/prestashop-installed"
 
 - name: Fijamos permisos de la instalación de Prestashop
   file:
-    path: /var/www
+    path: "{{ prestashop_root_path }}"
     mode: 0777
     recurse: yes
     state: directory
