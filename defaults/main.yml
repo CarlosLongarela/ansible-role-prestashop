@@ -1,0 +1,3 @@
+---
+prestashop_version: 1.7.1.1
+prestashop_url_download: "https://download.prestashop.com/download/releases/prestashop_{{ prestashop_version }}.zip"

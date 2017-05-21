@@ -1,0 +1,19 @@
+---
+- name: Instalar Prestashop
+  unarchive:
+    src: "{{ prestashop_url_download }}"
+    dest: /var/www
+    remote_src: True
+    owner: www-data
+    group: www-data
+    creates: /var/www/prestashop
+
+- name: Fijamos permisos de la instalación de Prestashop
+  file:
+    path: /var/www
+    mode: 0777
+    recurse: yes
+    state: directory
+    owner: www-data
+    group: www-data
+  notify: Recargar Nginx

@@ -1,0 +1,24 @@
+galaxy_info:
+  author: Carlos Longarela
+  description: Prestashop 1.7.1 install and configuration.
+  company: Desarrollo web Carlos Longarela
+
+  license: license GPLv2
+
+  min_ansible_version: 1.8
+
+  platforms:
+   - name: Ubuntu
+     versions:
+      - xenial
+
+  galaxy_tags:
+    - system
+    - development
+    - web
+    - ecommerce
+
+dependencies:
+  - CarlosLongarela.mariadb
+  - CarlosLongarela.php7
+  - CarlosLongarela.nginx
