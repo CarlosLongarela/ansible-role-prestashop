@@ -16,6 +16,19 @@ Role Variables
     prestashop_version: 1.7.1.1
     prestashop_url_download: "https://download.prestashop.com/download/releases/prestashop_{{ prestashop_version }}.zip"
 
+    prestashop_root_path: "/home/webs/prestashop.test/public"
+
+    prestashop_domain: "prestashop.test"
+    prestashop_db_create: 1
+    prestashop_db_server: "localhost"
+    prestashop_db_name: "prestashop"
+    prestashop_db_user: "u_prestashop"
+    prestashop_db_password: "p_prestashop"
+    prestashop_language: "es"
+    prestashop_country: "es"
+    prestashop_timezone: "Europe/Madrid"
+    prestashop_newsletter: 0
+
 Dependencies
 ------------
 
@@ -30,6 +43,11 @@ Example Playbook
 
       gather_facts: no
       become: true
+
+      vars:
+        prestashop_root_path: "/home/webs/prestashop2.test/public"
+        prestashop_domain: "prestashop2.test"
+        prestashop_timezone: "Europe/Madrid"
 
       roles:
          - { role: CarlosLongarela.prestashop }
