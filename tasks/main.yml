@@ -35,4 +35,3 @@
   args:
     chdir:  "{{ prestashop_root_path }}/install"
     creates: "{{ prestashop_root_path }}/prestashop-installed-2.ok"
-
