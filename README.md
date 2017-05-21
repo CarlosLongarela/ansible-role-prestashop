@@ -32,7 +32,7 @@ Example Playbook
       become: true
 
       roles:
-         - { role: CarlosLongarela.prestashop}
+         - { role: CarlosLongarela.prestashop }
 
 License
 -------

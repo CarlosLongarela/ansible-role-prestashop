@@ -18,7 +18,7 @@ galaxy_info:
     - web
     - ecommerce
 
-dependencies:
-  - CarlosLongarela.mariadb
-  - CarlosLongarela.php7
-  - CarlosLongarela.nginx
+  dependencies:
+    - CarlosLongarela.mariadb
+    - CarlosLongarela.php7
+    - CarlosLongarela.nginx
