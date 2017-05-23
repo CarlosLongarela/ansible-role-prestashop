@@ -1,6 +1,6 @@
 ---
 - name: Comprobamos si ya está instalado PrestaShop.
-- stat:
+  stat:
     path: "{{ prestashop_root_path }}/prestashop-installed.txt"
   register: prestashop_status
 
