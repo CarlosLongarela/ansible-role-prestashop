@@ -14,3 +14,6 @@ prestashop_language: "es"
 prestashop_country: "es"
 prestashop_timezone: "Europe/Madrid"
 prestashop_newsletter: 0
+
+prestashop_admin_folder_name: "adminpr2791"
+prestashop_check_file_name: "prestashop-installed.txt"

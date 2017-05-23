@@ -29,6 +29,9 @@ Role Variables
     prestashop_timezone: "Europe/Madrid"
     prestashop_newsletter: 0
 
+    prestashop_admin_folder_name: "adminpr2791"
+    prestashop_check_file_name: "prestashop-installed.txt"
+
 Dependencies
 ------------
 
@@ -48,6 +51,7 @@ Example Playbook
         prestashop_root_path: "/home/webs/prestashop2.test/public"
         prestashop_domain: "prestashop2.test"
         prestashop_timezone: "Europe/Madrid"
+        prestashop_admin_folder_name: "pradmin2791"
 
       roles:
          - { role: CarlosLongarela.prestashop }

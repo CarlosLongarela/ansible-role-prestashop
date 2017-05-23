@@ -1,7 +1,7 @@
 ---
 - name: Comprobamos si ya está instalado PrestaShop.
   stat:
-    path: "{{ prestashop_root_path }}/prestashop-installed.txt"
+    path: "{{ prestashop_root_path }}/{{ prestashop_check_file_name }}"
   register: prestashop_status
 
 - name: Creamos el directorio de PrestaShop.
@@ -49,11 +49,11 @@
     state: absent
 
 - name: Renombramos el directorio admin de PrestaShop.
-  command: "mv {{ prestashop_root_path }}/admin {{ prestashop_root_path }}/adminvap72"
+  command: "mv {{ prestashop_root_path }}/admin {{ prestashop_root_path }}/{{ prestashop_admin_folder_name }}"
   when: prestashop_status.stat.exists == false
 
 - name: Creamos archivo que indica que PrestsSop está instalado.
   copy:
     content: "PrestaShop {{ prestashop_version }} instalado, no borrar este archivo, sino Ansible volverá a reinstalar PrestaShop"
-    dest: "{{ prestashop_root_path }}/prestashop-installed.txt"
+    dest: "{{ prestashop_root_path }}/{{ prestashop_check_file_name }}"
   when: prestashop_status.stat.exists == false
