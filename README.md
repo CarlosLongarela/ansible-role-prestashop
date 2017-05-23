@@ -20,6 +20,7 @@ Role Variables
 
     prestashop_domain: "prestashop.test"
     prestashop_db_create: 1
+    prestashop_db_clear: 1
     prestashop_db_server: "localhost"
     prestashop_db_name: "prestashop"
     prestashop_db_user: "u_prestashop"
