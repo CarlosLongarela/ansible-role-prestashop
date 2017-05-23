@@ -38,7 +38,7 @@
   when: prestashop_status.stat.exists == false
 
 - name: Instalamos Prestashop desde consola.
-  command: "php7.1 index_cli.php --domain={{ prestashop_domain }} --db_create={{ prestashop_db_create }} --db_server={{ prestashop_db_server }} --db_name={{ prestashop_db_name }} --db_user={{ prestashop_db_user }} --db_password={{ prestashop_db_password }} --language={{ prestashop_language }} --country={{ prestashop_country }} --timezone={{ prestashop_timezone }} --newsletter={{ prestashop_newsletter }}"
+  command: "php7.1 index_cli.php --domain={{ prestashop_domain }} --db_create={{ prestashop_db_create }} --db_server={{ prestashop_db_server }} --db_name={{ prestashop_db_name }} --db_user={{ prestashop_db_user }} --db_password={{ prestashop_db_password }} --engine={{ prestashop_db_engine }} --prefix={{ prestashop_db_prefix }} --language={{ prestashop_language }} --country={{ prestashop_country }} --timezone={{ prestashop_timezone }} --firstname={{ prestashop_firstname }} --lastname={{ prestashop_lastname }} --password={{ prestashop_password }} --email={{ prestashop_email }} --newsletter={{ prestashop_newsletter }}"
   args:
     chdir:  "{{ prestashop_root_path }}/install"
   when: prestashop_status.stat.exists == false
