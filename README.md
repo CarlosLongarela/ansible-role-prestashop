@@ -24,10 +24,17 @@ Role Variables
     prestashop_db_name: "prestashop"
     prestashop_db_user: "u_prestashop"
     prestashop_db_password: "p_prestashop"
+    prestashop_db_engine: "InnoDB"
+    prestashop_db_prefix: "ps_"
     prestashop_language: "es"
     prestashop_country: "es"
     prestashop_timezone: "Europe/Madrid"
     prestashop_newsletter: 0
+
+    prestashop_firstname: "PrestaShop"
+    prestashop_lastname: "Developer"
+    prestashop_password: "p_prestashop"
+    prestashop_email: "dev@prestashop.com"
 
     prestashop_admin_folder_name: "adminpr2791"
     prestashop_check_file_name: "prestashop-installed.txt"
