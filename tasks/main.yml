@@ -1,4 +1,9 @@
 ---
+- name: Comprobamos si ya está instalado PrestaShop.
+- stat:
+    path: "{{ prestashop_root_path }}/prestashop-installed.txt"
+  register: prestashop_status
+
 - name: Creamos el directorio de PrestaShop.
   file:
     path: "{{ prestashop_root_path }}"
@@ -6,7 +11,7 @@
     group: www-data
     mode: 0755
     state: directory
-#  register: phpmyadmin_created
+  when: prestashop_status.stat.exists == false
 
 - name: Descargamos Prestashop.
   unarchive:
@@ -15,7 +20,7 @@
     remote_src: true
     owner: www-data
     group: www-data
-    creates: "{{ prestashop_root_path }}/prestashop-downloaded.ok"
+  when: prestashop_status.stat.exists == false
 
 - name: Descomprimimos el zip de Prestashop.
   unarchive:
@@ -24,15 +29,27 @@
     remote_src: true
     owner: www-data
     group: www-data
-    creates: "{{ prestashop_root_path }}/prestashop-installed-1.ok"
+  when: prestashop_status.stat.exists == false
 
 - name: Borramos el zip de Prestashop.
   file:
     state: absent
     path: "{{ prestashop_root_path }}/prestashop.zip"
+  when: prestashop_status.stat.exists == false
 
 - name: Instalamos Prestashop desde consola.
   command: "php7.1 index_cli.php --domain={{ prestashop_domain }} --db_create={{ prestashop_db_create }} --db_server={{ prestashop_db_server }} --db_name={{ prestashop_db_name }} --db_user={{ prestashop_db_user }} --db_password={{ prestashop_db_password }} --language={{ prestashop_language }} --country={{ prestashop_country }} --timezone={{ prestashop_timezone }} --newsletter={{ prestashop_newsletter }}"
   args:
     chdir:  "{{ prestashop_root_path }}/install"
-    creates: "{{ prestashop_root_path }}/prestashop-installed-2.ok"
+  when: prestashop_status.stat.exists == false
+
+- name: Borramos el directorio install de PrestaShop.
+  file:
+    path: "{{ prestashop_root_path }}/install"
+    state: absent
+
+- name: Creamos archivo que indica que PrestsSop está instalado.
+  copy:
+    content: "PrestaShop {{ prestashop_version }} instalado"
+    dest: "{{ prestashop_root_path }}/prestashop-installed.txt"
+  when: prestashop_status.stat.exists == false
