@@ -48,6 +48,10 @@
     path: "{{ prestashop_root_path }}/install"
     state: absent
 
+- name: Renombramos el directorio admin de PrestaShop.
+  command: "mv {{ prestashop_root_path }}/admin {{ prestashop_root_path }}/adminvap72"
+  when: prestashop_status.stat.exists == false
+
 - name: Creamos archivo que indica que PrestsSop está instalado.
   copy:
     content: "PrestaShop {{ prestashop_version }} instalado"
