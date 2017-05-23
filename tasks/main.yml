@@ -54,6 +54,6 @@
 
 - name: Creamos archivo que indica que PrestsSop está instalado.
   copy:
-    content: "PrestaShop {{ prestashop_version }} instalado"
+    content: "PrestaShop {{ prestashop_version }} instalado, no borrar este archivo, sino Ansible volverá a reinstalar PrestaShop"
     dest: "{{ prestashop_root_path }}/prestashop-installed.txt"
   when: prestashop_status.stat.exists == false
