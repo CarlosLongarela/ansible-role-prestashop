@@ -5,7 +5,7 @@ galaxy_info:
 
   license: license GPLv2
 
-  min_ansible_version: 1.8
+  min_ansible_version: 2.2
 
   platforms:
    - name: Ubuntu

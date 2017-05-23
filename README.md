@@ -1,4 +1,4 @@
-Ansible Role: Prestashop
+Ansible Role: PrestaShop
 =========
 
 [![Build Status](https://travis-ci.org/CarlosLongarela/ansible-role-prestashop.svg?branch=master)](https://travis-ci.org/CarlosLongarela/ansible-role-prestashop)

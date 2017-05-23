@@ -1,36 +1,37 @@
 ---
-- name: Descargar Prestashop
+- name: Creamos el directorio de PrestaShop.
+  file:
+    path: "{{ prestashop_root_path }}"
+    owner: www-data
+    group: www-data
+    mode: 0755
+    state: directory
+#  register: phpmyadmin_created
+
+- name: Descargamos Prestashop.
   unarchive:
     src: "{{ prestashop_url_download }}"
     dest: "{{ prestashop_root_path }}"
-    remote_src: True
+    remote_src: true
     owner: www-data
     group: www-data
     creates: "{{ prestashop_root_path }}/prestashop-downloaded.ok"
 
-- name: Fijamos permisos de la instalación de Prestashop
-  file:
-    path: "{{ prestashop_root_path }}"
-    mode: 0775
-    recurse: yes
-    state: directory
-    owner: www-data
-    group: www-data
-
-- name: Descomprimimos el zip de Prestashop
+- name: Descomprimimos el zip de Prestashop.
   unarchive:
     src: "{{ prestashop_root_path }}/prestashop.zip"
     dest: "{{ prestashop_root_path }}"
+    remote_src: true
     owner: www-data
     group: www-data
     creates: "{{ prestashop_root_path }}/prestashop-installed-1.ok"
 
-- name: Borramos el zip de Prestashop
+- name: Borramos el zip de Prestashop.
   file:
     state: absent
     path: "{{ prestashop_root_path }}/prestashop.zip"
 
-- name: Instalamos Prestashop desde consola
+- name: Instalamos Prestashop desde consola.
   command: "php7.1 index_cli.php --domain={{ prestashop_domain }} --db_create={{ prestashop_db_create }} --db_server={{ prestashop_db_server }} --db_name={{ prestashop_db_name }} --db_user={{ prestashop_db_user }} --db_password={{ prestashop_db_password }} --language={{ prestashop_language }} --country={{ prestashop_country }} --timezone={{ prestashop_timezone }} --newsletter={{ prestashop_newsletter }}"
   args:
     chdir:  "{{ prestashop_root_path }}/install"
