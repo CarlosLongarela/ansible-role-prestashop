@@ -2,6 +2,8 @@ Ansible Role: PrestaShop
 =========
 
 [![Build Status](https://travis-ci.org/CarlosLongarela/ansible-role-prestashop.svg?branch=master)](https://travis-ci.org/CarlosLongarela/ansible-role-prestashop)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/CarlosLongarela/ansible-role-prestashop.svg)](http://isitmaintained.com/project/CarlosLongarela/ansible-role-prestashop "Percentage of issues still open")
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/CarlosLongarela/ansible-role-prestashop.svg)](http://isitmaintained.com/project/CarlosLongarela/ansible-role-prestashop "Average time to resolve an issue")
 
 Prestashop 1.7.1 install and configuration.
 
