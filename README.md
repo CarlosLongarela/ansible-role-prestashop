@@ -45,9 +45,10 @@ Role Variables
 Dependencies
 ------------
 
-  - CarlosLongarela.mariadb
-  - CarlosLongarela.php7
-  - CarlosLongarela.nginx
+  - [CarlosLongarela.percona](https://galaxy.ansible.com/CarlosLongarela/percona/)
+  - [CarlosLongarela.mariadb](https://galaxy.ansible.com/CarlosLongarela/mariadb/)
+  - [CarlosLongarela.php7](https://galaxy.ansible.com/CarlosLongarela/php7/)
+  - [CarlosLongarela.nginx](https://galaxy.ansible.com/CarlosLongarela/nginx/)
 
 Example Playbook
 ----------------
