@@ -1,11 +1,12 @@
 galaxy_info:
+  role_name: prestashop
   author: Carlos Longarela
   description: Prestashop 1.7.1 install and configuration.
-  company: Desarrollo web Carlos Longarela
+  company: Taberna WordPress
 
-  license: license GPLv2
+  license: GPLv3
 
-  min_ansible_version: 2.2
+  min_ansible_version: 2.5
 
   platforms:
    - name: Ubuntu
@@ -19,6 +20,7 @@ galaxy_info:
     - ecommerce
 
   dependencies:
+    - CarlosLongarela.percona
     - CarlosLongarela.mariadb
     - CarlosLongarela.php7
     - CarlosLongarela.nginx
